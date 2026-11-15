@@ -1,6 +1,6 @@
-﻿# ICT Terminal Pro
+# ICT Terminal Pro
 
-Aplikasi desktop Windows untuk **charting MetaTrader 5 multi-timeframe**, sinyal **BUY/SELL**, **order box ala TradingView**, dan **backtest metode ICT/Smart Money Concepts** â€” lengkap dengan laporan gambar.
+Aplikasi desktop Windows untuk **charting MetaTrader 5 multi-timeframe**, sinyal **BUY/SELL**, **order box ala TradingView**, dan **backtest metode ICT/Smart Money Concepts** — lengkap dengan laporan gambar.
 
 Dibuat dengan Python + PyQt6 + pyqtgraph + MetaTrader5, dan dipaketkan menjadi satu file `.exe`.
 
@@ -13,20 +13,20 @@ Dibuat dengan Python + PyQt6 + pyqtgraph + MetaTrader5, dan dipaketkan menjadi s
 | Fitur | Keterangan |
 |---|---|
 | **Chart real-time MT5** | Candlestick + volume, 7 timeframe: M1, M5, M15, M30, H1, H4, D1 |
-| **Sinyal multi-timeframe** | Skor konfluensi -100â€¦+100, label BUY / SELL / WAIT per timeframe dan agregat |
-| **Dashboard live 7 TF** | Tab `DASHBOARD 7 TF` â€” 7 mini-chart tajam tanpa scaling gambar; klik panel untuk buka chart |
+| **Sinyal multi-timeframe** | Skor konfluensi -100…+100, label BUY / SELL / WAIT per timeframe dan agregat |
+| **Dashboard live 7 TF** | Tab `DASHBOARD 7 TF` — 7 mini-chart tajam tanpa scaling gambar; klik panel untuk buka chart |
 | **ICT overlays** | Order Block (demand/supply), Fair Value Gap, BOS/CHoCH, liquidity sweep, EQH/EQL, BSL/SSL |
 | **Indikator** | EMA 20/50/200, RSI, MACD, ATR, ADX, Supertrend, Bollinger |
 | **Trade plan** | Entry, Stop Loss, Take Profit, R:R, confidence, alasan sinyal |
 | **Order box TradingView-style** | Kotak risk/reward dengan garis Entry / SL / TP yang bisa di-drag; mode **Long** dan **Short** |
-| **Auto forecast** | Skenario proyeksi entry â†’ retest â†’ target, plus cone ketidakpastian |
+| **Auto forecast** | Skenario proyeksi entry → retest → target, plus cone ketidakpastian |
 | **Backtest ICT** | Event-driven, mendukung semua timeframe, RR & threshold dapat diatur |
 | **Auto Trade Python** | Multi-symbol: centang beberapa simbol, eksekusi order MT5, 1 BUY + 1 SELL per TF **per simbol**, risk global 0.5%/trade, total risk 2%, max DD 4%, TP RR/struktur |
 | **Notifikasi Telegram** | Kirim pesan saat sinyal ditemukan dan saat order berhasil dibuka, lengkap dengan nama simbol |
 | **History & Replay** | Marker trade historis di candle (backtest / Auto Trade MT5) + play/pause/step replay |
 | **Trade Report multi-symbol** | Kalender bulanan P/L + filter **satu simbol atau semua simbol**: jumlah order, profit, loss, win rate, net P/L, dan tabel trade |
 | **Export XLSX** | Export trade report ke Excel: summary, trades, daily, per simbol, per TF, dan kalender P/L |
-| **Export laporan** | Chart backtest per TF, summary multi-TF, forecast, dan dashboard â€” otomatis tersimpan di `reports/` |
+| **Export laporan** | Chart backtest per TF, summary multi-TF, forecast, dan dashboard — otomatis tersimpan di `reports/` |
 | **Gallery** | Melihat kembali semua gambar backtest/forecast di dalam aplikasi |
 | **Mode demo** | Jika MT5 tidak terhubung, aplikasi tetap terbuka memakai data candle sintetis |
 
@@ -46,7 +46,7 @@ Jika memakai file zip, ekstrak dulu, lalu jalankan `ICT-Terminal-Pro-2.0.4.exe` 
 
 1. Buka **MetaTrader 5**, login ke akun (demo/real), biarkan terminal berjalan.
 2. Jalankan `ICT-Terminal-Pro-2.0.4.exe` (dari folder `dist` bila memakai source, atau dari folder hasil ekstrak zip).
-3. Tunggu 10â€“60 detik saat pertama kali (one-file exe melakukan ekstraksi internal + inisialisasi MT5).
+3. Tunggu 10–60 detik saat pertama kali (one-file exe melakukan ekstraksi internal + inisialisasi MT5).
 4. Pilih simbol & timeframe, lalu klik **Refresh** bila perlu.
 
 > Build ulang: jalankan `build_pro.bat`. Hasil ada di `dist\ICT-Terminal-Pro-2.0.4.exe`.
@@ -78,7 +78,7 @@ Hasil tersimpan di folder `reports/`.
 ## Panduan singkat di aplikasi
 
 1. **Pilih simbol** di combobox (bisa diketik untuk mencari, mis. `XAUUSD`, `EURUSD`, `NAS100`).
-2. **Pilih timeframe** lewat tombol M1â€¦D1, atau klik baris tabel konfluensi di panel kiri.
+2. **Pilih timeframe** lewat tombol M1…D1, atau klik baris tabel konfluensi di panel kiri.
 3. Panel kiri menunjukkan:
    - sinyal agregat 7 timeframe,
    - tabel sinyal per timeframe,
@@ -111,13 +111,13 @@ Hasil tersimpan di folder `reports/`.
     - Pada mode **Struktur liquidity**, field RR dinonaktifkan dan TP murni memakai swing/liquidity; jika target tidak valid (<0.8R), trade dilewati (tidak fallback ke RR).
     - Risk per trade, max total risk, max drawdown, spread, dan batas bar dapat diatur.
     - **STOP ENGINE** menghentikan entry baru; posisi yang sudah terbuka tetap ada.
-    - **STOP ALL Â· TUTUP POSISI** menutup semua posisi milik engine (semua simbol) dan menghentikan engine.
+    - **STOP ALL · TUTUP POSISI** menutup semua posisi milik engine (semua simbol) dan menghentikan engine.
     - Max DD 4% = **stop entry baru**; posisi lama tetap dikelola SL/TP. Gunakan STOP ALL untuk menutup semuanya.
     - Engine hanya berjalan selama aplikasi Python hidup; SL/TP tetap tersimpan di server MT5.
     - Log evaluasi tiap candle menyertakan **simbol + TF**: `WAIT`, `HOLD`, `SKIP` + alasan, atau `VALID -> kirim order`.
     - Posisi dan sinyal terakhir ditampilkan per simbol; Telegram juga menyertakan nama simbol.
 13. Panel **HISTORY & REPLAY** di tab Chart:
-    - **Tampilkan history trade** â†’ marker entry/exit, kotak SL/TP, dan label R di candle sebelumnya.
+    - **Tampilkan history trade** → marker entry/exit, kotak SL/TP, dan label R di candle sebelumnya.
     - Sumber **Backtest terakhir** atau **Auto Trade MT5** (history deal berdasarkan magic number).
     - **Play/Pause/Step/Stop** untuk replay candle dari beberapa ratus bar terakhir.
     - History juga tampil di panel **DASHBOARD 7 TF** (30 candle/panel).
@@ -138,19 +138,19 @@ Hasil tersimpan di folder `reports/`.
 
 1. Buat bot lewat **@BotFather** di Telegram, salin **bot token**.
 2. Dapatkan **chat ID** (misalnya lewat @userinfobot, atau `getUpdates`).
-3. Buka tab **AUTO TRADE** â†’ bagian **NOTIFIKASI TELEGRAM**.
+3. Buka tab **AUTO TRADE** → bagian **NOTIFIKASI TELEGRAM**.
 4. Isi token dan chat ID, klik **Test Telegram**.
 5. Aktifkan checkbox notifikasi sebelum **MULAI AUTO TRADE**.
 
 Pesan yang dikirim:
 
-- `ðŸ”” SINYAL ICT` saat setup BUY/SELL ditemukan.
-- `âœ… ORDER OPENED` saat order berhasil dibuka (lot, entry, SL, TP, ticket).
+- `🔔 SINYAL ICT` saat setup BUY/SELL ditemukan.
+- `✅ ORDER OPENED` saat order berhasil dibuka (lot, entry, SL, TP, ticket).
 
 Token disimpan lokal di QSettings Windows. Jangan bagikan token ke orang lain.
 Telegram hanya mengirim notifikasi; eksekusi order tetap dilakukan oleh engine MT5 di aplikasi.
 
-### Auto Trade (Python) â€” catatan penting
+### Auto Trade (Python) — catatan penting
 
 - Ini **bukan EA MQL5**: order dikirim lewat `MetaTrader5.order_send()` dari aplikasi.
 - **Monitor/chart tetap satu simbol**; engine auto trade memproses semua simbol yang dicentang.
@@ -159,7 +159,7 @@ Telegram hanya mengirim notifikasi; eksekusi order tetap dilakukan oleh engine M
 - Maksimal **12 simbol** per engine agar scan MT5 tetap ringan.
 - MT5 harus terbuka, login, dan **Algo Trading aktif**.
 - Backtest Python dan eksekusi live tidak akan identik 100% (spread, slippage, tick, eksekusi).
-- Hasil backtest saat ini belum kuat untuk live agresif: PF 1.03, drawdown per TF 12â€“25%.
+- Hasil backtest saat ini belum kuat untuk live agresif: PF 1.03, drawdown per TF 12–25%.
 - Wajib uji di akun **demo** lebih dulu.
 - Tutup aplikasi **tidak** menutup posisi yang sudah terbuka; SL/TP tetap aktif di server.
 
@@ -171,21 +171,21 @@ Skor tiap timeframe dihitung dari konfluensi:
 
 | Komponen | Bobot |
 |---|---|
-| Market structure BOS/CHoCH | Â±24 |
-| Harga vs EMA50 | Â±12 |
-| Harga vs EMA200 | Â±8 |
-| EMA20 vs EMA50 | Â±7 |
-| Supertrend | Â±8 |
-| RSI (momentum / overbought-oversold) | Â±4â€¦Â±6 |
-| MACD histogram | Â±7 |
-| Discount / premium | Â±8 |
-| Reaksi di Order Block | Â±12 |
-| Harga mengisi FVG | Â±6 |
-| Liquidity sweep | Â±11 |
-| ADX > 22 (penguat) | Ã—1.08 |
+| Market structure BOS/CHoCH | ±24 |
+| Harga vs EMA50 | ±12 |
+| Harga vs EMA200 | ±8 |
+| EMA20 vs EMA50 | ±7 |
+| Supertrend | ±8 |
+| RSI (momentum / overbought-oversold) | ±4…±6 |
+| MACD histogram | ±7 |
+| Discount / premium | ±8 |
+| Reaksi di Order Block | ±12 |
+| Harga mengisi FVG | ±6 |
+| Liquidity sweep | ±11 |
+| ADX > 22 (penguat) | ×1.08 |
 
-* **BUY** jika skor â‰¥ +30, **SELL** jika â‰¤ âˆ’30, selain itu **WAIT**.
-* Agregat memakai bobot timeframe: M1 0.5 â†’ D1 3.5.
+* **BUY** jika skor ≥ +30, **SELL** jika ≤ −30, selain itu **WAIT**.
+* Agregat memakai bobot timeframe: M1 0.5 → D1 3.5.
 * Entry memakai harga terakhir; SL di luar zona/swing + buffer ATR; TP di liquidity terdekat atau minimal 1.5R.
 * Confidence adalah estimasi kekuatan sinyal, **bukan probabilitas menang**.
 
@@ -209,7 +209,7 @@ Model yang diuji:
 - SL di luar zona / swing + buffer 0.25 ATR.
 - TP = RR × risiko (default 2.0R).
 - SL dicek lebih dulu bila satu candle menyentuh SL dan TP.
-- Timeout **45 candle untuk M1/M5/M15** dan **60 candle untuk M30/H1/H4/D1** â€” aturan ini selalu per TF, tidak berubah saat memilih â€œSemua timeframeâ€.
+- Timeout **45 candle untuk M1/M5/M15** dan **60 candle untuk M30/H1/H4/D1** — aturan ini selalu per TF, tidak berubah saat memilih “Semua timeframe”.
 - Hanya candle yang sudah close yang dipakai untuk backtest.
 - Spread broker + komisi 0.015R diperhitungkan.
 - Risiko 1% equity per trade, compounding.
@@ -227,14 +227,14 @@ Model yang diuji:
 
 | TF | Trades | Win % | PF | Expectancy | Net R | Max DD |
 |---|---:|---:|---:|---:|---:|---:|
-| M1 | 202 | 41.6% | 0.90 | âˆ’0.06R | âˆ’12.1R | 21.5% |
-| M5 | 217 | 42.4% | 0.95 | âˆ’0.03R | âˆ’6.2R | 21.1% |
-| M15 | 211 | 40.3% | 0.93 | âˆ’0.04R | âˆ’8.4R | 25.0% |
+| M1 | 202 | 41.6% | 0.90 | −0.06R | −12.1R | 21.5% |
+| M5 | 217 | 42.4% | 0.95 | −0.03R | −6.2R | 21.1% |
+| M15 | 211 | 40.3% | 0.93 | −0.04R | −8.4R | 25.0% |
 | M30 | 208 | 45.7% | 1.15 | +0.08R | +16.7R | 14.1% |
 | H1 | 210 | 45.7% | 1.18 | +0.09R | +19.9R | 13.1% |
 | H4 | 246 | 42.7% | 1.03 | +0.02R | +4.7R | 12.5% |
 | D1 | 180 | 44.4% | 1.10 | +0.06R | +10.1R | 22.8% |
-| **Total** | **1474** | **43.2%** | **1.03** | â€” | **+24.7R** | â€” |
+| **Total** | **1474** | **43.2%** | **1.03** | — | **+24.7R** | — |
 
 **Catatan penting:** hasil di atas adalah sampel riset, bukan jaminan profit.
 M1, M5, dan M15 negatif pada sampel ini; M30/H1/H4/D1 positif. Drawdown per TF bisa di atas 20%.
@@ -255,39 +255,39 @@ Gambar lengkap:
 
 ```text
 mt5_indikator/
-â”œâ”€â”€ main.py                     # entry point + CLI (--reports, --selftest)
-â”œâ”€â”€ build.bat                   # build .exe (PyInstaller one-file)
-â”œâ”€â”€ run.bat                     # jalankan dari source
-â”œâ”€â”€ generate_reports.bat        # generate gambar backtest
-â”œâ”€â”€ requirements.txt
-â”œâ”€â”€ assets/
-â”‚   â””â”€â”€ icon.ico / icon.png
-â”œâ”€â”€ ictterm/
-â”‚   â”œâ”€â”€ config.py               # konstanta, timeframe, tema, path
-â”‚   â”œâ”€â”€ data.py                 # koneksi & cache data MT5 + fallback demo
-â”‚   â”œâ”€â”€ indicators.py           # EMA, RSI, MACD, ATR, ADX, Supertrend, dll.
-â”‚   â”œâ”€â”€ ict.py                  # swing, BOS/CHoCH, OB, FVG, sweep, EQH/EQL
-â”‚   â”œâ”€â”€ signals.py              # skor multi-TF, trade plan, forecast path
-â”‚   â”œâ”€â”€ backtest.py             # event-driven backtester
-â”‚   â”œâ”€â”€ reporting.py            # render PNG (matplotlib)
-â”‚   â”œâ”€â”€ app.py                  # main window
-â”‚   â””â”€â”€ widgets/
-â”‚       â”œâ”€â”€ chart.py            # candlestick chart + overlay + crosshair
-â”‚       â”œâ”€â”€ order_tool.py       # order box yang bisa di-drag
-â”‚       â”œâ”€â”€ panels.py           # confluence, signal table, trade plan, dsb.
-â”‚       â””â”€â”€ backtest_tab.py     # backtest lab + gallery
-â”œâ”€â”€ reports/                    # output gambar
-â””â”€â”€ dist/
-    â””â”€â”€ ICT-Terminal-Pro-2.0.4.exe
+├── main.py                     # entry point + CLI (--reports, --selftest)
+├── build.bat                   # build .exe (PyInstaller one-file)
+├── run.bat                     # jalankan dari source
+├── generate_reports.bat        # generate gambar backtest
+├── requirements.txt
+├── assets/
+│   └── icon.ico / icon.png
+├── ictterm/
+│   ├── config.py               # konstanta, timeframe, tema, path
+│   ├── data.py                 # koneksi & cache data MT5 + fallback demo
+│   ├── indicators.py           # EMA, RSI, MACD, ATR, ADX, Supertrend, dll.
+│   ├── ict.py                  # swing, BOS/CHoCH, OB, FVG, sweep, EQH/EQL
+│   ├── signals.py              # skor multi-TF, trade plan, forecast path
+│   ├── backtest.py             # event-driven backtester
+│   ├── reporting.py            # render PNG (matplotlib)
+│   ├── app.py                  # main window
+│   └── widgets/
+│       ├── chart.py            # candlestick chart + overlay + crosshair
+│       ├── order_tool.py       # order box yang bisa di-drag
+│       ├── panels.py           # confluence, signal table, trade plan, dsb.
+│       └── backtest_tab.py     # backtest lab + gallery
+├── reports/                    # output gambar
+└── dist/
+    └── ICT-Terminal-Pro-2.0.4.exe
 ```
 
 ---
 
 ## Troubleshooting
 
-**â€œMT5 tidak terhubungâ€ / data tidak update**
+**“MT5 tidak terhubung” / data tidak update**
 - Pastikan terminal MetaTrader 5 sudah login dan tidak di-minimize total.
-- Buka MT5 â†’ Tools â†’ Options â†’ Expert Advisors â†’ centang *Allow algorithmic trading* (opsional untuk data).
+- Buka MT5 → Tools → Options → Expert Advisors → centang *Allow algorithmic trading* (opsional untuk data).
 - Klik **Refresh** di aplikasi.
 - Pastikan simbol tersedia di Market Watch (aplikasi otomatis `symbol_select`).
 - Jika memakai exe di komputer lain, install MetaTrader 5 terlebih dahulu.
@@ -361,25 +361,3 @@ tools\reset_trial.bat :: reset data lisensi untuk testing (vendor only)
 
 Logika auto trade tidak diubah: pembatasan hanya menge-clamp
 `AutoTradeConfig` sebelum engine dijalankan dan menonaktifkan kontrol di UI.
-
-
-
-
-
-## Bukti keaslian EA (untuk prop firm / broker)
-
-Kalau prop firm meminta bukti bahwa EA ini buatan sendiri:
-
-```bat
-.venv\Scripts\python.exe tools\make_bukti_paket.py
-```
-
-Perintah itu membuat folder `BUKTI_KEPEMILIKAN/` (kirim sebagai ZIP) berisi:
-
-- `BUKTI_KEASLIAN_EA.md` - surat pernyataan + arsitektur + daftar yang aman
-- `src/ictterm/*.py` - 11 modul strategi (config dalam versi redaksi)
-- `manifest_sha256.txt` - sidik jari SHA-256 modul, exe, dan PDF
-- `bukti_gambar/` - screenshot aplikasi + laporan backtest/forecast
-
-Yang tidak pernah masuk paket: `licensing.py`, `tools/vendor/`,
-`ed25519_private.key`, keygen, dan riwayat pembeli. Detail: `BUKTI_KEASLIAN_EA.md`.
