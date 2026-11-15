@@ -11,8 +11,8 @@ Write-Host "==========================================================" -Foregro
 Write-Host "   ICT TERMINAL PRO v$Version - CLI INSTALLER" -ForegroundColor White
 Write-Host "==========================================================" -ForegroundColor Cyan
 
-$zipUrl = "https://github.com/$Repo/releases/download/v$Version/ICT-Terminal-Pro-$Version-win64.zip"
-$zipPath = "$env:TEMP\ICT-Terminal-Pro-$Version-win64.zip"
+$zipUrl = "https://github.com/$Repo/releases/download/v$Version/ICT-Terminal-Pro-$Version-native-win64.zip"
+$zipPath = "$env:TEMP\ICT-Terminal-Pro-$Version-native-win64.zip"
 
 Write-Host "[1/3] Mengunduh paket aplikasi dari GitHub..." -ForegroundColor Yellow
 Write-Host "      URL: $zipUrl" -ForegroundColor DarkGray
